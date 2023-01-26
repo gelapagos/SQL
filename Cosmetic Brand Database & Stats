@@ -1,0 +1,50 @@
+CREATE TABLE assortment (id INTEGER PRIMARY KEY, name TEXT, category TEXT, price INTEGER, shades INTEGER);
+
+INSERT INTO assortment VALUES
+(1, "sunscreen", "face", 499, 3),
+(2, "serum foundation", "face", 599, 4),
+(3, "powder foundation", "face", 549, 3),
+(4, "concealer", "face", 399, 6),
+(5, "blush", "face", 299, 4),
+(6, "eyeshadow palette", "eyes", 599, 5),
+(7, "brow pencil", "eyes", 399, 3),
+(8, "liquid liner", "eyes", 329, 2),
+(9, "lip oil","lips", 399, 4),
+(10, "lip balm","lips", 249, 1),   
+(11, "liquid eyeshadow", "eyes", 349, 5),
+(12, "contour powder", "face", 349, 2),
+(13, "mascara", "eyes", 399, 1),
+(14, "eyeliner", "eyes", 299, 1),
+(15, "illuminator", "face", 499, 1);
+
+--What is the average price of the face products? 
+SELECT AVG(price) "avg price face" 
+FROM assortment
+WHERE category="face";
+
+--What is the average price of the eye products? 
+SELECT AVG(price) "avg price eyes"
+FROM assortment
+WHERE category="eyes";
+
+--What is the average price of the lip products? 
+SELECT AVG(price) "avg price lips"
+FROM assortment
+WHERE category="lips";
+
+--What is the total number of SKUs?
+SELECT SUM(shades) "total # of skus"
+FROM assortment;
+
+--What are the 3 highest priced products?
+SELECT name, price
+FROM assortment
+ORDER BY price desc
+LIMIT 3;
+
+--What are the 3 lowest priced products?
+SELECT name, price
+FROM assortment
+ORDER BY price asc
+LIMIT 3;
+
